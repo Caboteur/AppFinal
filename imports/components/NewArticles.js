@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import {Form, Segment} from 'semantic-ui-react';
 import {markdown} from 'markdown';
 
+
+
 export default class NewArticles extends Component {
   constructor(){
     super();
     this.state= {
-
+     filename:''
     };
   }
 
@@ -50,6 +52,23 @@ export default class NewArticles extends Component {
     });
   }
 
+
+
+  uploadFile(e){
+      e.preventDefault();
+      Meteor.subscribe("images");
+      var that = this;
+      FS.Utility.eachFile(e, function(file) {
+          Images.insert(file, function (err, fileObj) {
+              that.setState({filename:fileObj.data.blob.name,imageurl:'/cfs/files/images/' + fileObj._id + '/' + fileObj.data.blob.name});
+          });
+      });
+  console.log(this.sate);
+    console.log(this.sate.filename);
+  }
+
+
+
   render(){
     console.log(this.state.html)
     return(
@@ -70,6 +89,7 @@ export default class NewArticles extends Component {
         <Form.Group>
           <Form.Button onClick={this.handleSave.bind(this)} content="Enregistrer" positive />
           <Form.Button onClick={this.handleCancel.bind(this)} content="Annuler" negative />
+          <li><input onChange={this.uploadFile} ref="file" className='filepicker' id="file" type="file"/></li>
         </Form.Group>
       </Form>
       <Segment dangerouslySetInnerHTML={ {__html: this.state.html} }>

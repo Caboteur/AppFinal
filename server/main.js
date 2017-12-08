@@ -9,21 +9,20 @@ Meteor.methods({
     return Articles.findOne({title: titre});
   },
   saveArticle: (obj)=> {
-    if(Meteor.userId()){
+
       if(obj.title.length <=1){
         throw new Meteor.Error("Le titre est obligatoire");
-      } else if(obj.description.length <= 10){
-        throw new Meteor.Error("La description doit faire 10 caractères au minimum");
+      } else {
+
+        Articles.insert(obj);
       }
-      Articles.insert(obj);
-    } else {
-      throw new Meteor.Error("Il faut être connecté pour enregistrer un article");
-    }
+
 
 
   },
-  removeArticle(id){
+  removeArticle:(id) => {
     Articles.remove(id);
+    console.log("supprimé")
   },
   userInfo(id){
     const result = Meteor.users.findOne({_id: id});
