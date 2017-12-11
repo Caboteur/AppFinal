@@ -3,12 +3,13 @@ import {FlowRouter} from 'meteor/kadira:flow-router';
 import {mount} from 'react-mounter';
 
 import Actualites from '../components/Actualites.js';
-import NewArticles from '../components/NewArticles.js';
-import Slide from '../components/Slide.js';
+import Profile from '../components/Profile.js';
+import Admin from '../containers/admin.js';
+import Slide from '../containers/Slide.js';
 
 import Mainlayout from '../layouts/Mainlayout.js';
 
-FlowRouter.route('/', {
+FlowRouter.route('/Actualites', {
   name: 'home',
   action: function () {
     mount(Mainlayout, { content: <Actualites /> });
@@ -16,10 +17,17 @@ FlowRouter.route('/', {
 });
 
 
-FlowRouter.route('/NewArticles', {
-  name: 'NewArticles',
+FlowRouter.route('/Admin', {
+  name: 'Admin',
   action: function () {
-    mount(Mainlayout, { content: <NewArticles /> });
+    mount(Mainlayout, { content: <Admin /> });
+  },
+});
+
+FlowRouter.route('/Profile', {
+  name: 'Profile',
+  action: function () {
+    mount(Mainlayout, { content: <Profile /> });
   },
 });
 

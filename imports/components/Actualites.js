@@ -1,28 +1,24 @@
 import React, {Component} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 
-import styles from '../style/carte.css';
-
 import {Button, Grid, Card, Image, Icon} from 'semantic-ui-react';
 
-import Carte from '../components/Carte.js';
+import styles from '../style/Article.css'
 
-export default class HomeReact extends Component {
+export default class Actualites extends Component {
 
    constructor(){
      super()
      this.state= {
-       ViewArticle:[],
+       FolowArticle:[],
        articles: [],
-       article: {}
+       FirstArticle: []
      };
    }
 
    componentWillMount(){
      this.getArticles();
-
-
-     console.log(this.state.articles)
+      console.log(this.state.articles)
    }
 
 
@@ -56,6 +52,9 @@ export default class HomeReact extends Component {
          });
        } else {
          this.setState({articles: res.reverse()})
+         console.log(res);
+         this.ReturnArticle();
+         console.log(this.state.ViewArticle)
        }
      });
 
@@ -64,12 +63,11 @@ export default class HomeReact extends Component {
 
    ReturnArticle () {
 
-     for(const i = 0 ; i<4; i++) {
-       const array = this.state.articles;
-      console.log(array);
-
-     }
-
+     const FolowArticle = this.state.articles.slice(1, 3);
+     this.setState({FolowArticle: FolowArticle});
+     const FirstArticle = this.state.articles.slice(0, 1);
+     this.setState({FirstArticle:FirstArticle });
+     console.log(FirstArticle)
    }
 
 
@@ -117,54 +115,75 @@ export default class HomeReact extends Component {
 
 
      return (
+       <div className="Article-container">
+
+       <div>News</div>
 
 
-        <div className="Card">
-
-        <Card.Group>
-         {this.state.articles.map( (article)=> {
+       <div className="masonry">
 
 
+              {this.state.FirstArticle.map( (article)=> {
 
-           return (
+                 return (
+
+                   <div className="column">
+                   <div  className="item">
 
 
-                 <Card key={article._id} target="blanck">
-                 <Image src='/image/Back.svg' style={{minHeight: '250px'}}/>
-                 <Card.Content>
-                   <Card.Header>
-                   </Card.Header>
-                   <Card.Meta>
-                     <span className='date'>
-                       {article.title}
-                     </span>
-                    </Card.Meta>
-                    <Card.Description>
-                    {label (article.description)}
-                     </Card.Description>
+                     <div key={article._id} className="item__content--large-first">
+                     <h1 className="Article-title">{article.title}</h1>
+                     <p>{label (article.description)}</p>
+
+                     {RemoveButton(article._id)}
                      {FolowButton()}
-                    </Card.Content>
-                    <Card.Content extra>
-                    {RemoveButton(article._id)}
-                    </Card.Content>
-                   </Card>
+
+                      </div>
+                      </div>
+                      </div>
 
             )
-         } )}
-         </Card.Group>
+
+      }
+      )
+    }
 
 
 
-        <Button animated>
-        <Button.Content visible>Next</Button.Content>
-        <Button.Content hidden>
-        <Icon name='right arrow' />
-        </Button.Content>
-        </Button>
+                           <div className="column">
+                             <div  className="item">
+
+              {this.state.FolowArticle.map( (article)=> {
 
 
-    </div>
 
-     );
+
+                return (
+
+
+
+        <div key={article._id} className="item__content item__content--large">
+        <h1 className="Article-title">{article.title}</h1>
+        <p>{label (article.description)}</p>
+        {RemoveButton(article._id)}
+        {FolowButton()}
+        </div>
+
+
+
+
+
+)
+} )}
+
+
+              </div>
+            </div>
+
+    <a href="#sectionTwo">Section Two</a>
+  </div>
+</div>
+
+     )
    }
  }
