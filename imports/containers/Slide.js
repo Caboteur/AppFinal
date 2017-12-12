@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
 import { Button, Grid, Card, Image, Icon} from 'semantic-ui-react'
 import {SectionsContainer, Section} from 'react-fullpage';
+import {withTracker} from 'meteor/react-meteor-data';
+
+import Userstore from '../store/store.js'
 
 import Actualites from '../components/Actualites.js';
 
 import styles from '../style/Slide.css';
 
-export default class Slide extends Component {
+
+class Slide extends Component {
+
+  logout(){
+   Userstore.logout((err)=>{
+     if(err){
+       Bert.alert({
+         title:"Erreur réseau ",
+         message: "Nous n'avons pas pu vous déconnecter",
+         type: 'danger'
+       });
+     } else {
+       Bert.alert({
+         title:"Déconnexion",
+         message: "Vous êtes maintenant déconnecté",
+         type: 'success'
+       });
+     }
+   });
+ }
+
 
 
 
@@ -15,19 +38,44 @@ export default class Slide extends Component {
          sectionClassName:     'section',
          anchors:              ['sectionOne', 'sectionTwo', 'sectionThree'],
          scrollBar:            false,
-         navigation:           true,
+         navigation:           false,
          verticalAlign:        false,
          sectionPaddingTop:    '50px',
          sectionPaddingBottom: '50px',
-         arrowNavigation:      true
+         arrowNavigation:      false
        };
+
+
+       const LogoutButton = () => {
+             if (this.props.loggedin) {
+           return (<Button
+             size="mini"
+             icon="delete"
+             color="red"
+             content="Logout"
+             onClick={this.logout}/>)
+           }
+
+       }
+
 
         return (
           <SectionsContainer {...options}>
-          <Section className="page"><Actualites /></Section>
+          <Section className="page">{LogoutButton()}<Actualites /></Section>
           <Section >Page 2</Section>
           <Section>Page 3</Section>
           vcc</SectionsContainer>
         );
       }
     }
+
+
+    const SlideReact = withTracker( ()=>{
+     console.log(Userstore.loggedin.get())
+     return {
+       loggedin: Userstore.loggedin.get(),
+     }
+
+   })(Slide);
+
+     export default SlideReact

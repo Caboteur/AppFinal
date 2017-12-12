@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import {createContainer} from 'meteor/react-meteor-data';
+import {withTracker} from 'meteor/react-meteor-data';
+
+import Userstore from '../store/store.js'
 
 import {Button, Grid, Card, Image, Icon} from 'semantic-ui-react';
 
 import styles from '../style/Article.css'
 
-export default class Actualites extends Component {
+class Actualites extends Component {
 
    constructor(){
      super()
@@ -75,7 +77,7 @@ export default class Actualites extends Component {
    render(){
 
      const RemoveButton = (id) => {
-
+           if (this.props.loggedin) {
          return (<Button
            size="mini"
            icon="delete"
@@ -83,6 +85,7 @@ export default class Actualites extends Component {
            name={id}
            content="Supprimer"
            onClick={this.handleRemove.bind(this)}/>)
+         }
 
      }
 
@@ -108,7 +111,7 @@ export default class Actualites extends Component {
 
    const label = (props) => {
 
-      var cont = props.substring(0,250);
+      var cont = props.substring(0,100);
 
         return (cont)}
 
@@ -120,26 +123,23 @@ export default class Actualites extends Component {
        <div>News</div>
 
 
-       <div className="masonry">
+
+
 
 
               {this.state.FirstArticle.map( (article)=> {
 
                  return (
 
-                   <div className="column">
                    <div  className="item">
-
-
-                     <div key={article._id} className="item__content--large-first">
-                     <h1 className="Article-title">{article.title}</h1>
-                     <p>{label (article.description)}</p>
-
-                     {RemoveButton(article._id)}
-                     {FolowButton()}
+                    <div key={article._id} className="article-meta">
+                     <div><img className="article-img" src="/image/Back.svg" /></div>
+                     <p className="article-title">{article.title}</p>
+                     <img className="article-icon" src="/image/facebook.svg" />
+                     <p className="article-description">{label (article.description)}</p>
 
                       </div>
-                      </div>
+                      {RemoveButton(article._id)}
                       </div>
 
             )
@@ -150,9 +150,6 @@ export default class Actualites extends Component {
 
 
 
-                           <div className="column">
-                             <div  className="item">
-
               {this.state.FolowArticle.map( (article)=> {
 
 
@@ -162,28 +159,33 @@ export default class Actualites extends Component {
 
 
 
-        <div key={article._id} className="item__content item__content--large">
-        <h1 className="Article-title">{article.title}</h1>
-        <p>{label (article.description)}</p>
-        {RemoveButton(article._id)}
-        {FolowButton()}
-        </div>
+                  <div  className="item">
+                   <div key={article._id} className="article-meta">
+                    <div><img className="article-img" src="/image/Back.svg" /></div>
+                    <p className="article-title">{article.title}</p>
+                    <img className="article-icon" src="/image/facebook.svg" />
+                     </div>
+                     {RemoveButton(article._id)}
+                     </div>
+
+           )
+      } )
+    }
 
 
 
-
-
-)
-} )}
-
-
-              </div>
             </div>
-
-    <a href="#sectionTwo">Section Two</a>
-  </div>
-</div>
 
      )
    }
  }
+
+ const ActualitesReact = withTracker( ()=>{
+  console.log(Userstore.loggedin.get())
+  return {
+    loggedin: Userstore.loggedin.get(),
+  }
+
+})(Actualites);
+
+  export default ActualitesReact

@@ -6,6 +6,7 @@ import Actualites from '../components/Actualites.js';
 import Profile from '../components/Profile.js';
 import Admin from '../containers/admin.js';
 import Slide from '../containers/Slide.js';
+import Connection from '../containers/Connection.js';
 
 import Mainlayout from '../layouts/Mainlayout.js';
 
@@ -35,5 +36,12 @@ FlowRouter.route('/Slide', {
   name: 'Slide',
   action: function () {
     mount(Mainlayout, { content: <Slide /> });
+  },
+});
+
+FlowRouter.route('/Connection', {
+  name: 'Connection',
+  action: function () {
+    mount(Mainlayout, { content: <Connection /> });
   },
 });

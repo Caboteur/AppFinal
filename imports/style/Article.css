@@ -1,53 +1,47 @@
-@charset "UTF-8";
-@import url("data:application/octet-stream;base64,QGZvbnQtZmFjZSB7CiAgZm9udC1mYW1pbHk6ICdQVCBNb25vJzsKICBmb250LXN0eWxlOiBub3JtYWw7CiAgZm9udC13ZWlnaHQ6IDQwMDsKICBzcmM6IGxvY2FsKCdQVCBNb25vJyksIGxvY2FsKCdQVE1vbm8tUmVndWxhcicpLCB1cmwoaHR0cHM6Ly9mb250cy5nc3RhdGljLmNvbS9zL3B0bW9uby92NS9lUGdGdnFPQ2lMSGhBUVpEWV9wbG9BLnR0ZikgZm9ybWF0KCd0cnVldHlwZScpOwp9Cg==");
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 
-
-.Article-container {
-margin: 0 auto;
-margin-top: 50px;
-font-family: "PT Mono", monospace;
-width:1450px;
-align-items:center;
+.Article-container{
+width:100%;
+height:100%;
+margin:0;
+display: flex;
+flex-wrap: wrap
 }
 
-.masonry {
-  margin: 0 auto;
-  display: flex;
-}
-
-.column {
-
-  display: flex;
-  width: 100%;
-}
-
-
-.item {
-  background-color: #0D0630;
-  box-sizing: border-box;
-  padding: 10px;
+.article-meta{
+position:relative;
+max-width:90%;
+max-height: 500px;
+background-color: black;
+margin: auto;
 
 }
 
-
-.Article-title{
-
-margin-top: 0;
-padding: 0 0 10px;
+.article-img{
+padding:0;
+max-width:100%;
+max-height: 400px;
 }
 
-.item__content--large {
-  background-color:#0D0630;
-  color:white;
-  height: 400px;
-  width: 700px;
-  margin-bottom: 20px;
+
+
+.article-title{
+padding-top:-50px;
+margin-left: 20px;
+justify-content: center;
+font-family: 'Fredoka One', cursive;
+font-size: 30px;
+color: white;
 }
 
-.item__content--large-first {
-  background-color:#0D0630;
-  color:white;
-  height: 820px;
-  width: 700px;;
+.article-description {
+padding:0 5px 5px 5px;
+font-family: 'Fredoka One', cursive;
+color: white;
+}
 
+.article-icon {
+float:right;
+padding:40px;
+margin-top: -10px;
 }

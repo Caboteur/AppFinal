@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Form, Segment} from 'semantic-ui-react';
-
+import {Button, Form, Segment, Icon } from 'semantic-ui-react';
 import NewProfiles from '../components/NewProfiles.js';
 import NewArticles from '../components/NewArticles.js';
 
@@ -17,7 +16,9 @@ export default class Admin extends Component {
 
      <NewProfiles />
      <NewArticles />
-
+     <Button   size="mini"
+        color="green"
+        content="Aller sur mon site" href='/Slide' />
       </div>
     );
   }
