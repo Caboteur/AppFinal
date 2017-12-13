@@ -140,13 +140,6 @@ export default class Profile extends Component {
 
 
 
-           <Button animated>
-           <Button.Content visible>Next</Button.Content>
-           <Button.Content hidden>
-           <Icon name='right arrow' />
-           </Button.Content>
-           </Button>
-
 
        </div>
 

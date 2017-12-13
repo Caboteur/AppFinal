@@ -1,4 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Fira+Mono|Nixie+One');
+
+/*font-family: 'Nixie One', cursive;
+font-family: 'Bungee Shade', cursive;
+font-family: 'Fira Mono', monospace;*/
+
+
+.logo-menu{
+position: fixed;
+height:50px;
+width: 50px;
+right:10px;
+}
+
+.section-title{
+  height:50px;
+  width: 50px;
+  right:10px;
+}
 
 .Article-container{
 width:100%;
@@ -8,36 +26,58 @@ display: flex;
 flex-wrap: wrap
 }
 
+
 .article-meta{
 position:relative;
 max-width:90%;
-max-height: 500px;
-background-color: black;
 margin: auto;
+margin-top: 5px;
 
 }
+
+.article-meta-second{
+  position:relative;
+  max-width:90%;
+  margin: auto;
+   margin-top: 5px;
+
+}
+
+.item{
+
+  display: flex;
+  flex-wrap: wrap;
+}
+.item{
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 
 .article-img{
 padding:0;
 max-width:100%;
-max-height: 400px;
+max-height: 100%;
 }
-
 
 
 .article-title{
 padding-top:-50px;
-margin-left: 20px;
 justify-content: center;
-font-family: 'Fredoka One', cursive;
-font-size: 30px;
-color: white;
+font-family: 'Fira Mono', monospace;
+font-size: 20px;
+color: black;
+border-bottom: 1px solid black;
 }
 
 .article-description {
 padding:0 5px 5px 5px;
-font-family: 'Fredoka One', cursive;
+font-family: 'Fira Mono', monospace;
 color: white;
+max-height:100%;
+color: black;
+border-bottom: 1px solid black;
 }
 
 .article-icon {

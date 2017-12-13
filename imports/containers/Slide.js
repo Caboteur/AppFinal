@@ -40,8 +40,8 @@ class Slide extends Component {
          scrollBar:            false,
          navigation:           false,
          verticalAlign:        false,
-         sectionPaddingTop:    '50px',
-         sectionPaddingBottom: '50px',
+         sectionPaddingTop:    '0px',
+         sectionPaddingBottom: '0px',
          arrowNavigation:      false
        };
 
@@ -61,7 +61,10 @@ class Slide extends Component {
 
         return (
           <SectionsContainer {...options}>
-          <Section className="page">{LogoutButton()}<Actualites /></Section>
+          <Section className="page">{LogoutButton()}
+          <div className="section-title"><h1>News!</h1></div>
+          <Actualites />
+          </Section>
           <Section >Page 2</Section>
           <Section>Page 3</Section>
           vcc</SectionsContainer>

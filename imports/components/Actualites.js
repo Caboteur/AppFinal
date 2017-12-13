@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 
-import Userstore from '../store/store.js'
+import Userstore from '../store/store.js';
+import Menu from '../components/Menu.js';
 
 import {Button, Grid, Card, Image, Icon} from 'semantic-ui-react';
 
@@ -65,7 +66,7 @@ class Actualites extends Component {
 
    ReturnArticle () {
 
-     const FolowArticle = this.state.articles.slice(1, 3);
+     const FolowArticle = this.state.articles.slice(1, 2);
      this.setState({FolowArticle: FolowArticle});
      const FirstArticle = this.state.articles.slice(0, 1);
      this.setState({FirstArticle:FirstArticle });
@@ -111,31 +112,23 @@ class Actualites extends Component {
 
    const label = (props) => {
 
-      var cont = props.substring(0,100);
+      var cont = props.substring(0,50);
 
         return (cont)}
 
 
-
      return (
        <div className="Article-container">
-
-       <div>News</div>
-
-
-
-
-
 
               {this.state.FirstArticle.map( (article)=> {
 
                  return (
 
                    <div  className="item">
+
                     <div key={article._id} className="article-meta">
+                    <p className="article-title">{article.title}</p>
                      <div><img className="article-img" src="/image/Back.svg" /></div>
-                     <p className="article-title">{article.title}</p>
-                     <img className="article-icon" src="/image/facebook.svg" />
                      <p className="article-description">{label (article.description)}</p>
 
                       </div>
@@ -157,16 +150,15 @@ class Actualites extends Component {
 
                 return (
 
+                   <div  className="item-second">
 
+                  <div key={article._id} className="article-meta-second">
+                  <p className="article-title">{article.title}</p>
 
-                  <div  className="item">
-                   <div key={article._id} className="article-meta">
-                    <div><img className="article-img" src="/image/Back.svg" /></div>
-                    <p className="article-title">{article.title}</p>
-                    <img className="article-icon" src="/image/facebook.svg" />
-                     </div>
-                     {RemoveButton(article._id)}
-                     </div>
+                   <p className="article-description">{label (article.description)}</p>
+                   </div>
+                    {RemoveButton(article._id)}
+                    </div>
 
            )
       } )

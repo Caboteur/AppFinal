@@ -1,86 +1,16 @@
-.page{
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Fira+Mono|Nixie+One');
 
-background-color:blue ;
+.section page{
+background: url('/image/fond.svg');
 
 }
 
-/*arrow */
-i {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  cursor: pointer;
-  backface-visibility: hidden;
+.section-title{
+height:50px;
+width: 100%;
+
 }
-i:before,
-i:after {
-  content: "";
-  display: block;
-  position: absolute;
-  border-radius: 100px;
-  background: #fff;
-  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
-  transition: all 100ms ease-in-out;
-}
-i:before {
-  transform: rotate(-50deg);
-}
-i:after {
-  transform: rotate(50deg);
-}
-i.left,
-i.right {
-  width: 45px;
-  height: 80px;
-}
-i.left:before,
-i.right:before,
-i.left:after,
-i.right:after {
-  width: 45px;
-  height: 2px;
-  top: 50%;
-  left: 0;
-}
-i.left:before,
-i.left:after {
-  transform-origin: 0% 50%;
-}
-i.right:before,
-i.right:after {
-  transform-origin: 100% 50%;
-}
-i.top,
-i.bottom {
-  width: 80px;
-  height: 45px;
-}
-i.top:before,
-i.bottom:before,
-i.top:after,
-i.bottom:after {
-  height: 45px;
-  width: 2px;
-  top: 0;
-  left: 50%;
-}
-i.top:before,
-i.top:after {
-  transform-origin: 50% 0%;
-}
-i.bottom:before,
-i.bottom:after {
-  transform-origin: 50% 100%;
-}
-i:hover:before {
-  transform: rotate(-40deg);
-}
-i:hover:after {
-  transform: rotate(40deg);
-}
-i:active:before {
-  transform: rotate(-30deg);
-}
-i:active:after {
-  transform: rotate(30deg);
-}
+
+.section-title h1{
+text-align: center;
+font-family: 'Bungee Shade', cursive;
