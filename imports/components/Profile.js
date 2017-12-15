@@ -8,9 +8,8 @@ export default class Profile extends Component {
       super()
       this.state= {
         articles: [],
-        acteur: [],
-        technicien: [],
-        realisateur: [],
+        objet:"",
+        num: 0
       };
     }
 
@@ -51,9 +50,48 @@ export default class Profile extends Component {
           });
         } else {
            this.setState({articles: res.reverse()})
-
+          this.getCard();
         }
       });
+    }
+
+
+    getCard (){
+
+      const i = this.state.num;
+
+
+       console.log(this.state.num);
+       this.state.articles[i];
+       console.log(this.state.articles[i]);
+       this.setState({objet:this.state.articles[i]});
+
+
+
+       if(i === this.state.articles.length){
+         const count = this.state.articles.length - 2 ;
+          this.setState({num:count});
+          console.log(count)
+       }else if(i<this.state.articles.length){
+         const count = i + 1 ;
+         this.setState({num:count});
+         console.log(count)
+         console.log(this.state.articles.length)
+
+       }
+       }
+
+    getlessCard (){
+
+      const i = this.state.num;
+
+
+       console.log(this.state.num);
+       this.state.articles[i];
+       console.log(this.state.articles[i]);
+       this.setState({objet:this.state.articles[i]});
+       const count = i - 1 ;
+       this.setState({num:count});
     }
 
     render(){
@@ -71,15 +109,6 @@ export default class Profile extends Component {
 
 
 
-
-        const settings = {
-              dots: true,
-              infinite: true,
-              speed: 500,
-              slidesToShow: 1,
-              slidesToScroll: 1
-            };
-
       const FolowButton = () => {
 
             return(<Button
@@ -91,54 +120,61 @@ export default class Profile extends Component {
 
             }
 
-      const label = (props) => {
+       const label = (props) => {
+         if(this.state.num==0){
 
-         var cont = props.substring(0,250);
+          console.log("attends")
 
-           return (cont)}
+        } else {
+
+          var cont = props.substring(0,250);
+
+            return (cont)}
+
+
+        }
+
+
+
+
+
 
 
 
         return (
 
 
-           <div className="Card">
+           <div className="Card-container">
 
-           <Card.Group>
-            {this.state.articles.map( (article)=> {
+           <Button onClick={this.getlessCard.bind(this)}/>
 
-
-
-              return (
-
-
-                    <Card key={article._id} target="blanck">
-                    <Image src='/image/template.jpg' style={{minHeight: '250px'}}/>
-                    <Card.Content>
-                      <Card.Header>
-                      </Card.Header>
-                      <Card.Meta>
-                        <span className='date'>
-                          {article.title}
-                        </span>
-                       </Card.Meta>
-                       <Card.Description>
-                       {label (article.description)}
-                        </Card.Description>
-                        {FolowButton()}
-                       </Card.Content>
-                       <Card.Content extra>
-                       {RemoveButton(article._id)}
-                       </Card.Content>
-                      </Card>
-
-               )
-            } )}
+           <Card id="card" key={this.state.objet._id}>
+      <Image src='/assets/images/avatar/large/matthew.png' />
+      <Card.Content>
+        <Card.Header>
+          {this.state.objet.title}
+        </Card.Header>
+        <Card.Meta>
+          <span className='date'>
+            Joined in 2015
+          </span>
+        </Card.Meta>
+        <Card.Description>
+          {label(this.state.objet.description)}
+        </Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <a>
+          <Icon name='user' />
+          22 Friends
+        </a>
+        {FolowButton ()}
+        {RemoveButton ()}
+      </Card.Content>
+    </Card>
 
 
-            </Card.Group>
-
-
+        <Button onClick={this.getCard.bind(this)}/>
 
 
        </div>
