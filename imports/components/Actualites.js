@@ -154,8 +154,8 @@ class Actualites extends Component {
 
                   <div key={article._id} className="article-meta-second">
                   <p className="article-title">{article.title}</p>
-
-                   <p className="article-description">{label (article.description)}</p>
+                    <div><img className="article-img-2" src="/image/Back.svg" /></div>
+                     <p className="article-description">{label (article.description)}</p>
                    </div>
                     {RemoveButton(article._id)}
                     </div>
@@ -164,6 +164,7 @@ class Actualites extends Component {
       } )
     }
 
+             <span className="span-add"> </span>
 
 
             </div>

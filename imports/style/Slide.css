@@ -1,16 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Fira+Mono|Nixie+One');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-.section page{
-background: url('/image/fond.svg');
+.page-2 {
+
+font-family: 'Open Sans', sans-serif;
 
 }
 
 .section-title{
 height:50px;
 width: 100%;
-
+color:black;
+font-size:10px;
+}
+.section-title-2{
+height:50px;
+width: 100%;
+color:white;
 }
 
 .section-title h1{
 text-align: center;
-font-family: 'Bungee Shade', cursive;
+font-family: 'Open Sans', sans-serif;
+}
+
+.section-title-2 h1{
+text-align: center;
+font-family: 'Open Sans', sans-serif;
+}

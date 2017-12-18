@@ -8,6 +8,8 @@ import Admin from '../containers/admin.js';
 import Slide from '../containers/Slide.js';
 import Connection from '../containers/Connection.js';
 
+import Welcome from '../containers/Welcome.js'
+
 import Mainlayout from '../layouts/Mainlayout.js';
 
 FlowRouter.route('/Actualites', {
@@ -43,5 +45,12 @@ FlowRouter.route('/Connection', {
   name: 'Connection',
   action: function () {
     mount(Mainlayout, { content: <Connection /> });
+  },
+});
+
+FlowRouter.route('/Welcome', {
+  name: 'Welcome',
+  action: function () {
+    mount(Mainlayout, { content: <Welcome /> });
   },
 });

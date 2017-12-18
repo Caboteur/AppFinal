@@ -6,6 +6,10 @@ import {withTracker} from 'meteor/react-meteor-data';
 import Userstore from '../store/store.js'
 
 import Actualites from '../components/Actualites.js';
+import Profile from '../components/Profile.js';
+import FormReact from '../components/Form.js';
+import Pitch from '../components/Pitch.js';
+import Menu from '../components/Menu.js';
 
 import styles from '../style/Slide.css';
 
@@ -36,13 +40,13 @@ class Slide extends Component {
     render(){
       let options = {
          sectionClassName:     'section',
-         anchors:              ['sectionOne', 'sectionTwo', 'sectionThree'],
+         anchors:              ['sectionOne', 'sectionTwo', 'sectionThree', 'sectionFour', 'sectionFive'],
          scrollBar:            false,
-         navigation:           false,
+         navigation:           true,
          verticalAlign:        false,
          sectionPaddingTop:    '0px',
          sectionPaddingBottom: '0px',
-         arrowNavigation:      false
+         arrowNavigation:      true
        };
 
 
@@ -61,13 +65,24 @@ class Slide extends Component {
 
         return (
           <SectionsContainer {...options}>
-          <Section className="page">{LogoutButton()}
-          <div className="section-title"><h1>News!</h1></div>
+          <Section className="page">
+
+          <Pitch />
+          </Section>
+          <Section className="page">
+
           <Actualites />
           </Section>
-          <Section >Page 2</Section>
-          <Section>Page 3</Section>
-          vcc</SectionsContainer>
+
+          <Section className="page-2">
+          <div className="section-title">Notre equipe</div>
+          <Profile/>
+          </Section>
+          <Section>
+
+            <FormReact />
+            </Section>
+          </SectionsContainer>
         );
       }
     }

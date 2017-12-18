@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Grid, Card, Image, Icon} from 'semantic-ui-react'
 
+import Menu from '../components/Menu.js';
+
+import styles from '../style/Profile.css';
 
 export default class Profile extends Component {
 
@@ -61,37 +64,54 @@ export default class Profile extends Component {
       const i = this.state.num;
 
 
-       console.log(this.state.num);
+
        this.state.articles[i];
-       console.log(this.state.articles[i]);
+
        this.setState({objet:this.state.articles[i]});
 
 
 
-       if(i === this.state.articles.length){
-         const count = this.state.articles.length - 2 ;
+       if(i === this.state.articles.length - 1){
+         const count = this.state.articles.length  ;
           this.setState({num:count});
           console.log(count)
-       }else if(i<this.state.articles.length){
+       }
+
+       else {
          const count = i + 1 ;
          this.setState({num:count});
          console.log(count)
          console.log(this.state.articles.length)
+        console.log(i);
 
        }
        }
+
 
     getlessCard (){
 
       const i = this.state.num;
 
 
-       console.log(this.state.num);
-       this.state.articles[i];
-       console.log(this.state.articles[i]);
-       this.setState({objet:this.state.articles[i]});
-       const count = i - 1 ;
-       this.setState({num:count});
+
+             this.state.articles[i];
+
+             this.setState({objet:this.state.articles[i]});
+
+
+
+             if(i == 1 ){
+               const count = 0 ;
+                this.setState({num:count});
+                console.log(count)
+             }else {
+               const count = i - 1 ;
+               this.setState({num:count});
+               console.log(count)
+
+
+             }
+
     }
 
     render(){
@@ -121,13 +141,13 @@ export default class Profile extends Component {
             }
 
        const label = (props) => {
-         if(this.state.num==0){
+         if(this.state.objet == ""){
 
           console.log("attends")
 
         } else {
 
-          var cont = props.substring(0,250);
+          var cont = props.substring(0,150);
 
             return (cont)}
 
@@ -146,38 +166,37 @@ export default class Profile extends Component {
 
            <div className="Card-container">
 
-           <Button onClick={this.getlessCard.bind(this)}/>
+           <div className="card" key={this.state.objet._id}>
 
-           <Card id="card" key={this.state.objet._id}>
-      <Image src='/assets/images/avatar/large/matthew.png' />
-      <Card.Content>
-        <Card.Header>
-          {this.state.objet.title}
-        </Card.Header>
-        <Card.Meta>
-          <span className='date'>
-            Joined in 2015
-          </span>
-        </Card.Meta>
-        <Card.Description>
-          {label(this.state.objet.description)}
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>
-          <Icon name='user' />
-          22 Friends
-        </a>
-        {FolowButton ()}
-        {RemoveButton ()}
-      </Card.Content>
-    </Card>
+   <div className="card-circle">
+         <img className="card-img" src="/image/persona.jpg" />
+   </div>
+     <div className="">
+       <h1 className="card-h1">{this.state.objet.title}</h1>
+   </div>
+
+    <h3 className="card-h3">acteur</h3>
+
+   <div className='trait'></div>
+   <p className="paraph">{label(this.state.objet.description)}</p>
 
 
-        <Button onClick={this.getCard.bind(this)}/>
+   </div>
 
 
+
+
+
+
+
+
+  <div className="footer-profile">
+  <span className="arrow" onClick={this.getlessCard.bind(this)}></span>
+  <span className="add-span"></span>
+  <span className="arrow-2" onClick={this.getCard.bind(this)}></span>
+   </div>
        </div>
+
 
         );
       }

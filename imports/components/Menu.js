@@ -9,17 +9,24 @@ render () {
 
 return (
 
-  <div className="wrapper">
+  <div id="menuArea">
+    <input type="checkbox" id="menuToggle"></input>
 
-    <nav>
+  <label htmlFor="menuToggle" className="menuOpen">
+    <div className="open"></div>
+  </label>
+
+  <div className="menu menuEffects">
+    <label htmlFor="menuToggle"></label>
+    <div className="menuContent">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li> <a href="#">About</a></li>
-        <li> <a href="#">Get in Touch</a></li>
+        <li><a href="#">MENU 1</a></li>
+        <li><a href="#">MENU 2</a></li>
+        <li><a href="#">MENU 3</a></li>
+        <li><a href="#">MENU 4</a></li>
       </ul>
-    </nav>
-
+    </div>
+  </div>
   </div>
 
 )

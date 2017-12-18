@@ -1,0 +1,60 @@
+.pitch-div{
+background-image: cover;
+height:100%;
+width:100%;
+color: black;
+
+}
+
+.text{
+
+height:70%;
+width:80%;
+color: white;
+float: right;
+margin-top: 20px;
+color: black;
+margin-right:5px;
+}
+
+
+.trait-fin{
+width: 70%;
+height: 2px;
+background-color: blue;
+margin-bottom: 10px;
+}
+
+.ok{
+width: 30px;
+height:30px;
+background-color: blue;
+
+}
+
+.Entete{
+font-size:40px;
+color:blue;
+display: inline;
+margin-right: 10px;
+}
+
+.Entete-2{
+font-size:20px;
+color:blue;
+display: inline;
+margin-right: 10px;
+}
+
+.span-add{
+  height:50px;
+  width:50px;
+  display: inline-block;
+   margin:auto;
+   margin-top:20px;
+  text-align: center;
+  font-size: 40px;
+  font-family: "Roboto";
+  border-radius: 50%;
+  background: blue;
+}
