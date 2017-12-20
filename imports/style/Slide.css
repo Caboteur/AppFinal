@@ -27,3 +27,13 @@ font-family: 'Open Sans', sans-serif;
 text-align: center;
 font-family: 'Open Sans', sans-serif;
 }
+
+@media screen and (min-width: 700px)  {
+
+  .page-2 {
+
+  background: url("https://www.pinterest.com/pin/161707442854311679");
+
+  }
+
+}

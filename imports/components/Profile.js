@@ -164,6 +164,8 @@ export default class Profile extends Component {
         return (
 
 
+
+
            <div className="Card-container">
 
            <div className="card" key={this.state.objet._id}>
@@ -191,9 +193,9 @@ export default class Profile extends Component {
 
 
   <div className="footer-profile">
-  <span className="arrow" onClick={this.getlessCard.bind(this)}></span>
-  <span className="add-span"></span>
-  <span className="arrow-2" onClick={this.getCard.bind(this)}></span>
+  <div className="arrow" onClick={this.getlessCard.bind(this)}></div>
+  <div className="add-span"><h1>+</h1></div>
+  <div className="arrow-2" onClick={this.getCard.bind(this)}></div>
    </div>
        </div>
 

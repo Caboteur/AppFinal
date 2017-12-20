@@ -11,3 +11,14 @@ form {
   border:blue;
   color:blue;
 }
+
+@media screen and (min-width: 700px)  {
+
+  .form-group {
+  width:50%;
+  height:100%;
+  margin: auto;
+  margin-top: 100px;
+  }
+
+}

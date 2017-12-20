@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 
+import Media from 'react-media';
+
 import Userstore from '../store/store.js';
 import Menu from '../components/Menu.js';
 
@@ -14,6 +16,7 @@ class Actualites extends Component {
      super()
      this.state= {
        FolowArticle:[],
+       FolowArticleLarge:[],
        articles: [],
        FirstArticle: []
      };
@@ -71,6 +74,8 @@ class Actualites extends Component {
      const FirstArticle = this.state.articles.slice(0, 1);
      this.setState({FirstArticle:FirstArticle });
      console.log(FirstArticle)
+     const FolowArticleLarge = this.state.articles.slice(2,6);
+     this.setState({FolowArticleLarge:FolowArticleLarge });
    }
 
 
@@ -112,13 +117,35 @@ class Actualites extends Component {
 
    const label = (props) => {
 
-      var cont = props.substring(0,50);
+      var cont = props.substring(0,140);
 
         return (cont)}
 
 
+   const ArticleSuite = this.state.FolowArticleLarge.map( (article)=> {
+        return (
+       <div  className="item-second">
+        <div key={article._id} className="article-meta-second">
+       <p className="article-title">{article.title}</p>
+         <div><img className="article-img-2" src="/image/Back.svg" /></div>
+         <Media query="(max-width: 599px)">
+                    {matches => matches ? (
+                  <p> ok</p>
+                    ) : (
+                  <p className="article-description">{label (article.description)}...</p>
+               )}
+            </Media>
+          </div>
+         {RemoveButton(article._id)}
+          </div>
+
+)
+} )
+
      return (
        <div className="Article-container">
+
+
 
               {this.state.FirstArticle.map( (article)=> {
 
@@ -129,7 +156,7 @@ class Actualites extends Component {
                     <div key={article._id} className="article-meta">
                     <p className="article-title">{article.title}</p>
                      <div><img className="article-img" src="/image/Back.svg" /></div>
-                     <p className="article-description">{label (article.description)}</p>
+                     <p className="article-description">{label (article.description)}...</p>
 
                       </div>
                       {RemoveButton(article._id)}
@@ -144,27 +171,42 @@ class Actualites extends Component {
 
 
               {this.state.FolowArticle.map( (article)=> {
-
-
-
-
-                return (
-
-                   <div  className="item-second">
-
-                  <div key={article._id} className="article-meta-second">
+                   return (
+                  <div  className="item-second">
+                   <div key={article._id} className="article-meta-second">
                   <p className="article-title">{article.title}</p>
                     <div><img className="article-img-2" src="/image/Back.svg" /></div>
-                     <p className="article-description">{label (article.description)}</p>
-                   </div>
+                    <Media query="(max-width: 599px)">
+                               {matches => matches ? (
+                             <p> ok</p>
+                               ) : (
+                             <p className="article-description">{label (article.description)}...</p>
+                          )}
+                       </Media>
+                     </div>
                     {RemoveButton(article._id)}
-                    </div>
+                     </div>
 
            )
       } )
     }
 
-             <span className="span-add"> </span>
+    {this.state.FolowArticleLarge.map( (article)=> {
+          return (
+        <div  className="item-after">
+        <div key={article._id} className="article-meta-after">
+         <p className="article-title">{article.title}</p>
+         <div><img className="article-img-2" src="/image/Back.svg" /></div>
+        <p className="article-description">{label (article.description)}...</p>
+       {RemoveButton(article._id)}
+
+       </div>
+    </div>
+)
+} )
+}
+
+
 
 
             </div>
@@ -172,6 +214,7 @@ class Actualites extends Component {
      )
    }
  }
+
 
  const ActualitesReact = withTracker( ()=>{
   console.log(Userstore.loggedin.get())

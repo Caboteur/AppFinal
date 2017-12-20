@@ -25,3 +25,4 @@ accounts-base
 react-meteor-data
 cfs:filesystem
 jquery
+email

@@ -13,7 +13,10 @@ const FormReact = () => (
     <Form.Field id='form-textarea-control-opinion' color="green" control={TextArea} label='Opinion' placeholder='Opinion' />
     <Form.Field id='form-button-control-public' color="blue" control={Button} content='Confirm' label='Label with htmlFor' />
   </Form>
+
   </div>
 )
+
+
 
 export default FormReact

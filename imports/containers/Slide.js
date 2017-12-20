@@ -75,7 +75,6 @@ class Slide extends Component {
           </Section>
 
           <Section className="page-2">
-          <div className="section-title">Notre equipe</div>
           <Profile/>
           </Section>
           <Section>

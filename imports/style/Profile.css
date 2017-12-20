@@ -1,4 +1,4 @@
-.card-container{
+.Card-container{
 width:100%;
 height:100%;
 }
@@ -13,10 +13,10 @@ height:100%;
   cursor:pointer;
 }
 .footer-profile{
-max-width:320px;
+  display: flex;
+max-width:400px;
 height:80px;
 margin-bottom: 0;
-
 margin:auto;
 }
 .card-circle {
@@ -121,16 +121,17 @@ display:inline;
   cursor: pointer;
   position: relative;
   display: block;
-  float: right;
+
   width: 80px;
   height: 80px;
   border: solid 6px white;
   border-radius: 100%;
-  z-index: 1;
+  z-index: 2;
   -webkit-transition: all .2s linear;
   transition: all .2s linear;
 }
 .arrow-2:before, .arrow-2:after {
+
   display: inline;
   content: "";
   position: absolute;
@@ -146,7 +147,7 @@ display:inline;
   transition: all .2s linear;
 }
 .arrow-2:after {
-  z-index: 3;
+  z-index: 2;
   top: 59%;
   left: 55%;
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
@@ -162,7 +163,7 @@ display:inline;
   border: solid 8px blue;;
 }
 .arrow-2:active:after, .arrow:active:before {
-  background: blue;;
+  background: blue;
 }
 
 
@@ -170,13 +171,26 @@ display:inline;
 .add-span{
   height:50px;
   width:50px;
-  display: flex;
-   margin:auto;
- text-align: center;
-  margin-top:60%;
-  font-size: 40px;
-  font-family: "Roboto";
-  border-radius: 50%;
-  background: blue;
+  border-radius: 50px;
+  background-color: blue;
+  margin:auto;
 
 }
+
+.add-span h1{
+
+    margin:auto;
+    margin-top: 5px;
+    color:white;
+    font-size:27px;
+  }
+
+
+  @media screen and (min-width: 700px)  {
+
+    .Card-container{
+      height: 60%;
+      margin-top: 100px;
+    }
+
+  }

@@ -10,11 +10,10 @@ color: black;
 
 height:70%;
 width:80%;
-color: white;
 float: right;
 margin-top: 20px;
 color: black;
-margin-right:5px;
+margin-right:20px;
 }
 
 
@@ -33,14 +32,14 @@ background-color: blue;
 }
 
 .Entete{
-font-size:40px;
+font-size:25px;
 color:blue;
 display: inline;
 margin-right: 10px;
 }
 
 .Entete-2{
-font-size:20px;
+font-size:25px;
 color:blue;
 display: inline;
 margin-right: 10px;
@@ -57,4 +56,20 @@ margin-right: 10px;
   font-family: "Roboto";
   border-radius: 50%;
   background: blue;
+}
+
+@media screen and (min-width: 700px)  {
+
+  .text{
+
+  }
+
+  .pitch-div{
+   width: 50%;
+  margin: auto;
+  margin-top: 100px;
+  font-size:25px;
+  max-height: 90%;
+  }
+
 }
