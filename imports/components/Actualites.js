@@ -74,7 +74,7 @@ class Actualites extends Component {
      const FirstArticle = this.state.articles.slice(0, 1);
      this.setState({FirstArticle:FirstArticle });
      console.log(FirstArticle)
-     const FolowArticleLarge = this.state.articles.slice(2,6);
+     const FolowArticleLarge = this.state.articles.slice(2,5);
      this.setState({FolowArticleLarge:FolowArticleLarge });
    }
 
@@ -122,25 +122,7 @@ class Actualites extends Component {
         return (cont)}
 
 
-   const ArticleSuite = this.state.FolowArticleLarge.map( (article)=> {
-        return (
-       <div  className="item-second">
-        <div key={article._id} className="article-meta-second">
-       <p className="article-title">{article.title}</p>
-         <div><img className="article-img-2" src="/image/Back.svg" /></div>
-         <Media query="(max-width: 599px)">
-                    {matches => matches ? (
-                  <p> ok</p>
-                    ) : (
-                  <p className="article-description">{label (article.description)}...</p>
-               )}
-            </Media>
-          </div>
-         {RemoveButton(article._id)}
-          </div>
 
-)
-} )
 
      return (
        <div className="Article-container">

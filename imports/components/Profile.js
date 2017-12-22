@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Grid, Card, Image, Icon} from 'semantic-ui-react'
 
 import Menu from '../components/Menu.js';
+import Media from 'react-media';
 
 import styles from '../style/Profile.css';
 
@@ -11,6 +12,7 @@ export default class Profile extends Component {
       super()
       this.state= {
         articles: [],
+        stopcard: [],
         objet:"",
         num: 0
       };
@@ -114,6 +116,12 @@ export default class Profile extends Component {
 
     }
 
+    ReturnArticle () {
+      const StopCard = this.state.articles.slice(0, 2);
+      this.setState({stopcard: StopCard});
+      console.log(this.state.stopcard);
+    }
+
     render(){
 
       const RemoveButton = (id) => {
@@ -157,47 +165,70 @@ export default class Profile extends Component {
 
 
 
-
-
-
-
         return (
 
 
+          <Media query="(max-width: 599px)">
+                   {matches => matches ? (
+                     <div className="Card-container">
+
+                     <div className="card" key={this.state.objet._id}>
+
+             <div className="card-circle">
+                   <img className="card-img" src="/image/persona.jpg" />
+             </div>
+               <div className="">
+                 <h1 className="card-h1">{this.state.objet.title}</h1>
+             </div>
+
+              <h3 className="card-h3">acteur</h3>
+
+             <div className='trait'></div>
+             <p className="paraph">{label(this.state.objet.description)}</p>
 
 
-           <div className="Card-container">
-
-           <div className="card" key={this.state.objet._id}>
-
-   <div className="card-circle">
-         <img className="card-img" src="/image/persona.jpg" />
-   </div>
-     <div className="">
-       <h1 className="card-h1">{this.state.objet.title}</h1>
-   </div>
-
-    <h3 className="card-h3">acteur</h3>
-
-   <div className='trait'></div>
-   <p className="paraph">{label(this.state.objet.description)}</p>
+             </div>
 
 
-   </div>
+            <div className="footer-profile">
+            <div className="arrow" onClick={this.getlessCard.bind(this)}></div>
+            <div className="add-span"><h1></h1></div>
+            <div className="arrow-2" onClick={this.getCard.bind(this)}></div>
+             </div>
+                 </div>
+
+               ) : (
 
 
+          <div className="card-contains">{this.state.stopcard.map( (article)=> {
+                            return (
+                              <div className="Card-container">
+
+                              <div className="card" key={article._id}>
+
+                      <div className="card-circle">
+                            <img className="card-img" src="/image/persona.jpg" />
+                      </div>
+                        <div className="">
+                          <h1 className="card-h1">{article.title}</h1>
+                      </div>
+
+                       <h3 className="card-h3">acteur</h3>
+
+                      <div className='trait'></div>
+                      <p className="paraph">{label(article.description)}</p>
 
 
+                      </div>
+                </div>
+
+                    )
+               } )}</div>
+
+       )}
+       </Media>
 
 
-
-
-  <div className="footer-profile">
-  <div className="arrow" onClick={this.getlessCard.bind(this)}></div>
-  <div className="add-span"><h1>+</h1></div>
-  <div className="arrow-2" onClick={this.getCard.bind(this)}></div>
-   </div>
-       </div>
 
 
         );

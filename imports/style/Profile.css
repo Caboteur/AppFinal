@@ -186,11 +186,26 @@ display:inline;
   }
 
 
+.test{
+  background-color: red;
+  width: 400px;
+  height: 200px;
+}
+
   @media screen and (min-width: 700px)  {
+
+
 
     .Card-container{
       height: 60%;
+      width: 20%;
       margin-top: 100px;
+    }
+
+    .card-contains{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
     }
 
   }
