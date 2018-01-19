@@ -5,22 +5,32 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "babel-runtime": "^6.26.0",
+    "bodymovin": "^4.13.0",
     "create-react-class": "^15.6.2",
+    "install": "^0.10.2",
     "jquery": "^3.2.1",
+    "mapbox-gl": "^0.43.0",
     "markdown": "^0.5.0",
     "meteor-node-stubs": "^0.3.2",
+    "moment": "^2.20.1",
+    "npm": "^5.6.0",
     "react": "^16.2.0",
     "react-addons-pure-render-mixin": "^15.6.2",
+    "react-bodymovin": "^1.1.1",
     "react-classnames": "^0.1.2",
     "react-dom": "^16.2.0",
     "react-fullpage": "^0.1.18",
     "react-komposer": "^2.0.0",
+    "react-mapbox-g": "0.0.1",
+    "react-mapbox-gl": "^3.4.1",
     "react-media": "^1.6.1",
     "react-meteor-data": "^0.2.11",
     "react-mounter": "^1.2.0",
     "react-responsive": "^4.0.3",
     "react-slick": "^0.16.0",
+    "scrollreveal": "^3.3.6",
     "semantic-ui-react": "^0.77.0"
   }
 }

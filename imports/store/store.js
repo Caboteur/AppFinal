@@ -3,6 +3,7 @@ import {ReactiveVar} from 'meteor/reactive-var';
 
 const loggedin = new ReactiveVar(false);
 const user = new ReactiveVar({});
+const mainArticle = new ReactiveVar();
 
 const login = (mail, password, callback)=>{
   Meteor.loginWithPassword(mail, password,(err)=>{
@@ -39,9 +40,12 @@ const logout = (callback)=>{
 
 };
 
+
+
 export default userStore = {
   loggedin,
   user,
   login,
-  logout
+  logout,
+  mainArticle
 };

@@ -7,6 +7,7 @@ import Profile from '../components/Profile.js';
 import Admin from '../containers/admin.js';
 import Slide from '../containers/Slide.js';
 import Connection from '../containers/Connection.js';
+import MainArticle from '../components/MainArticle.js';
 
 import Welcome from '../containers/Welcome.js'
 
@@ -52,5 +53,12 @@ FlowRouter.route('/Welcome', {
   name: 'Welcome',
   action: function () {
     mount(Mainlayout, { content: <Welcome /> });
+  },
+});
+
+FlowRouter.route('/MainArticle', {
+  name: 'Welcome',
+  action: function () {
+    mount(Mainlayout, { content: <MainArticle /> });
   },
 });

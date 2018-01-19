@@ -1,0 +1,68 @@
+
+.bloc{
+  display:none;
+  width:50%;
+  height:100%;
+  background-color: blue;
+  max-height: 447px;
+  background: url('/image/texture.svg');
+  background-size: cover;
+}
+
+
+
+.intro{
+  display:flex;
+  margin:auto;
+width: 55%;
+height:500px;
+margin-top: 200px;
+
+}
+
+
+@media screen and (max-width: 1500px)  {
+
+  .bloc{
+    display:none;
+    width:50%;
+    height:100%;
+    background-color: blue;
+    max-height: 447px;
+  }
+
+
+
+  .intro{
+    display:flex;
+    margin:auto;
+  width: 70%;
+  height:500px;
+  margin-top: 200px;
+  }
+
+
+
+
+
+}
+
+@media screen and (max-width: 1000px)  {
+
+  .bloc{
+  display: none;
+  }
+
+
+  .intro{
+  margin:auto;
+  width: 90%;
+  height:400px;
+
+  }
+
+
+
+
+
+}

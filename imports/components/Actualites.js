@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
-import {withTracker} from 'meteor/react-meteor-data';
-
 import Media from 'react-media';
+
 
 import Userstore from '../store/store.js';
 import Menu from '../components/Menu.js';
+import Sidebar from '../components/Sidebar.js';
 
+
+import {ReactiveVar} from 'meteor/reactive-var';
+import {withTracker} from 'meteor/react-meteor-data';
 import {Button, Grid, Card, Image, Icon} from 'semantic-ui-react';
 
 import styles from '../style/Article.css'
 
-class Actualites extends Component {
+ class Actualites extends Component {
 
    constructor(){
      super()
@@ -18,7 +21,8 @@ class Actualites extends Component {
        FolowArticle:[],
        FolowArticleLarge:[],
        articles: [],
-       FirstArticle: []
+       FirstArticle: [],
+       StockArticle:""
      };
    }
 
@@ -67,11 +71,12 @@ class Actualites extends Component {
    }
 
 
+
    ReturnArticle () {
 
      const FolowArticle = this.state.articles.slice(1, 2);
      this.setState({FolowArticle: FolowArticle});
-     const FirstArticle = this.state.articles.slice(0, 1);
+     const FirstArticle = this.state.articles.slice(0, 3);
      this.setState({FirstArticle:FirstArticle });
      console.log(FirstArticle)
      const FolowArticleLarge = this.state.articles.slice(2,5);
@@ -82,19 +87,6 @@ class Actualites extends Component {
 
    render(){
 
-     const RemoveButton = (id) => {
-           if (this.props.loggedin) {
-         return (<Button
-           size="mini"
-           icon="delete"
-           color="red"
-           name={id}
-           content="Supprimer"
-           onClick={this.handleRemove.bind(this)}/>)
-         }
-
-     }
-
 
          const settings = {
            dots: true,
@@ -104,7 +96,7 @@ class Actualites extends Component {
            slidesToScroll: 1
          };
 
-   const FolowButton = () => {
+        const FolowButton = () => {
 
          return(<Button
          size="mini"
@@ -116,32 +108,43 @@ class Actualites extends Component {
          }
 
    const label = (props) => {
-
-      var cont = props.substring(0,140);
-
-        return (cont)}
+       var cont = props.substring(0,140);
+       return (cont)}
 
 
 
 
      return (
-       <div className="Article-container">
+
+         <div className="article-container">
+         <h1  >News</h1>
+          <Grid >
+           <Grid.Row>
+           <Grid.Column mobile={16} tablet={12} computer={12}>
+
+
 
 
 
               {this.state.FirstArticle.map( (article)=> {
 
+                const handleClick = ()=> {
+                  this.props.mainArticle.set(article)
+                   FlowRouter.go('/MainArticle')
+                  console.log(this.props.mainArticle)
+                }
+
                  return (
 
-                   <div  className="item">
+                   <div  key={article._id} className="item" onClick={handleClick}>
+                      <div className="div-img">
+                       <img className="article-img" src={article.image} />
+                       </div>
+                       <div className="article-title"><p >{article.title}<p className="article-date">{article.date}</p></p></div>
 
-                    <div key={article._id} className="article-meta">
-                    <p className="article-title">{article.title}</p>
-                     <div><img className="article-img" src="/image/Back.svg" /></div>
-                     <p className="article-description">{label (article.description)}...</p>
+                       <p className="article-description">{label (article.description)}...</p>
 
-                      </div>
-                      {RemoveButton(article._id)}
+                       <div className="border"></div>
                       </div>
 
             )
@@ -149,59 +152,27 @@ class Actualites extends Component {
       }
       )
     }
+                  <Icon size="huge" name='add circle' color="blue" className="plus-btn" />
+                   </Grid.Column>
+                 <Grid.Column mobile={16} tablet={4} computer={4}>
+                     <Sidebar />
+                           </Grid.Column>
+                                 </Grid.Row>
+                             </Grid>
 
 
 
-              {this.state.FolowArticle.map( (article)=> {
-                   return (
-                  <div  className="item-second">
-                   <div key={article._id} className="article-meta-second">
-                  <p className="article-title">{article.title}</p>
-                    <div><img className="article-img-2" src="/image/Back.svg" /></div>
-                    <Media query="(max-width: 599px)">
-                               {matches => matches ? (
-                             <p> ok</p>
-                               ) : (
-                             <p className="article-description">{label (article.description)}...</p>
-                          )}
-                       </Media>
-                     </div>
-                    {RemoveButton(article._id)}
-                     </div>
-
-           )
-      } )
-    }
-
-    {this.state.FolowArticleLarge.map( (article)=> {
-          return (
-        <div  className="item-after">
-        <div key={article._id} className="article-meta-after">
-         <p className="article-title">{article.title}</p>
-         <div><img className="article-img-2" src="/image/Back.svg" /></div>
-        <p className="article-description">{label (article.description)}...</p>
-       {RemoveButton(article._id)}
-
-       </div>
     </div>
-)
-} )
-}
 
-
-
-
-            </div>
 
      )
    }
  }
 
-
  const ActualitesReact = withTracker( ()=>{
-  console.log(Userstore.loggedin.get())
+
   return {
-    loggedin: Userstore.loggedin.get(),
+    mainArticle: userStore.mainArticle,
   }
 
 })(Actualites);

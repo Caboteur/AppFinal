@@ -1,3 +1,3 @@
-Meteor.publish('imagelist',function(){
+Meteor.publish('images',function(){
     return Images.find();
 });

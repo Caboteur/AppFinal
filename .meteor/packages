@@ -26,3 +26,4 @@ react-meteor-data
 cfs:filesystem
 jquery
 email
+ostrio:files

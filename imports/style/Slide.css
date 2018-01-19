@@ -1,39 +1,216 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-.page-2 {
-
-font-family: 'Open Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Monoton|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+.head{
+width: 100%;
+height:250px;
+margin:auto;
+text-align: center;
 
 }
 
-.section-title{
-height:50px;
-width: 100%;
-color:black;
-font-size:10px;
-}
-.section-title-2{
-height:50px;
-width: 100%;
+.head h1{
+  padding-top: 30px;
+font-family: 'Monoton', cursive;
+font-size: 35px;
 color:white;
 }
 
-.section-title h1{
-text-align: center;
-font-family: 'Open Sans', sans-serif;
+.border-2{
+background-color: white;
+margin: auto;
+width:30%;
+height: 2px;
 }
 
-.section-title-2 h1{
-text-align: center;
-font-family: 'Open Sans', sans-serif;
+.main-page{
+width:100%;
+background-color: #F7F9FB;
+
+
 }
 
-@media screen and (min-width: 700px)  {
+.page-container{
+width:100%;
+height: 100%;
+margin: auto;
+background: url("/image/pattern.jpg");;
 
-  .page-2 {
+}
 
-  background: url("https://www.pinterest.com/pin/161707442854311679");
+.page-container-2{
+max-width:80%;
+height: 100%;
+margin: auto;
+}
+
+.resume{
+width:100%;
+height:500px;
+background-color: green;
+background: url("/image/background.jpg");
+margin-top: 180px;
+}
+
+.resume-2{
+width:100%;
+height:250px;
+background: url("/image/pattern.svg");
+
+
+
+}
+
+
+
+.icon img{
+margin-top: 8px;
+margin-left: 10px;
+}
+
+.trailer-btn{
+margin-top: 140px;
+}
+
+.draw-border {
+  -webkit-box-shadow: inset 0 0 0 4px #58afd1;
+          box-shadow: inset 0 0 0 4px #58afd1;
+  color: #58afd1;
+  -webkit-transition: color 0.25s 0.0833333333s;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
+}
+.draw-border::before, .draw-border::after {
+  border: 0 solid transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+.draw-border:hover {
+  color: #ffe593;
+}
+.draw-border:hover::before, .draw-border:hover::after {
+  border-color: #ffe593;
+  -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+.draw-border:hover::before {
+  -webkit-transition-delay: 0s, 0s, 0.25s;
+          transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:hover::after {
+  -webkit-transition-delay: 0s, 0.25s, 0s;
+          transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+}
+.btn:focus {
+  outline: 2px dotted #55d7dc;
+}
+
+.couv{
+  height:100%;
+  background: url('/image/beach.svg');
+  background-size: cover;
+}
+
+@media screen and (min-width: 1500px)  {
+  .head{
+  width: 100%;
+  height:100%;
+  margin:auto;
+  text-align: center;
 
   }
+
+  .head h1{
+  font-family: 'Monoton', cursive;
+  font-size: 140px;
+  color:white;
+  }
+
+  .border-2{
+  background-color: white;
+  margin: auto;
+  width:30%;
+  height: 2px;
+    background-color:white;
+  }
+
+  .main-page{
+  width:100%;
+  background-color: white;
+  }
+
+  .page-container{
+  width:100%;
+  height: 100%;
+  margin: auto;
+
+  }
+
+
+
+  .resume{
+  width:100%;
+  height:500px;
+  background-color: green;
+  background: url("/image/background.jpg");
+  }
+
+  .couv{
+    background: url('/image/beach.svg');
+    background-size: cover;
+    height:100%;
+    margin-left:-25px;
+  }
+
+}
+
+
+@media screen and (min-width: 700px)  {
+  .head{
+  width: 100%;
+  height:350px;
+  margin:auto;
+  text-align: center;
+
+  }
+
+.head h1{
+font-family: 'Monoton', cursive;
+font-size: 70px;
+  color:white;
+}
+
+.couv{
+  background: url('/image/beach.svg');
+  background-size: cover;
+  height:100%;
+}
 
 }

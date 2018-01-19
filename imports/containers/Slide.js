@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import { Button, Grid, Card, Image, Icon} from 'semantic-ui-react'
 import {SectionsContainer, Section} from 'react-fullpage';
 import {withTracker} from 'meteor/react-meteor-data';
+import {bounceInLeft} from 'animate.css';
 
 import Userstore from '../store/store.js'
 
 import Actualites from '../components/Actualites.js';
 import Profile from '../components/Profile.js';
 import FormReact from '../components/Form.js';
-import Pitch from '../components/Pitch.js';
+import Head from '../components/Head.js';
 import Menu from '../components/Menu.js';
+import Sidebar from '../components/Sidebar.js';
+import Maps from '../components/Maps.js';
+import Anim from '../components/anim.js'
+import Gallery from '../components/Gallery.js';
 
 import styles from '../style/Slide.css';
 
@@ -39,16 +44,18 @@ class Slide extends Component {
 
     render(){
       let options = {
-         sectionClassName:     'section',
-         anchors:              ['sectionOne', 'sectionTwo', 'sectionThree', 'sectionFour', 'sectionFive'],
-         scrollBar:            false,
-         navigation:           true,
-         verticalAlign:        false,
-         sectionPaddingTop:    '0px',
-         sectionPaddingBottom: '0px',
-         arrowNavigation:      true
-       };
-
+  activeClass:          'active', // the class that is appended to the sections links
+  anchors:              [], // the anchors for each sections
+  arrowNavigation:      true, // use arrow keys
+  className:            'SectionContainer', // the class name for the section container
+  delay:                1000, // the scroll animation speed
+  navigation:           true, // use dots navigatio
+  scrollBar:            true, // use the browser default scrollbar
+  sectionClassName:     'Section', // the section class name
+  sectionPaddingTop:    '0', // the section top padding
+  sectionPaddingBottom: '0', // the section bottom padding
+  verticalAlign:        false // align the content of each section vertical
+};
 
        const LogoutButton = () => {
              if (this.props.loggedin) {
@@ -64,24 +71,36 @@ class Slide extends Component {
 
 
         return (
+          <div className="main-page">
           <SectionsContainer {...options}>
-          <Section className="page">
-
-          <Pitch />
-          </Section>
-          <Section className="page">
-
-          <Actualites />
-          </Section>
-
-          <Section className="page-2">
-          <Profile/>
-          </Section>
           <Section>
+          <div className="couv">
 
-            <FormReact />
+            <div className="head">
+            <h1 animated className="animated bounceInLeft">BACKPACKER</h1>
+            <div className="border-2"></div>
+            <a className="icon" href="https://www.facebook.com/"><img src='/image/fb-btn.svg'/></a>
+            <a className="icon" href="https://www.instagram.com/"><img src='/image/insta-btn.svg'/></a>
+            <a className="icon" href="https://twitter.com/"><img src='/image/twitt-btn.svg'/></a>
+                <div className="trailer-btn" ><button className="btn draw-border">Regarder le trailer</button></div>
+            </div>
+            <Head />
+            </div>
             </Section>
-          </SectionsContainer>
+            </SectionsContainer>
+            <div className="page-container">
+            <div className="resume-2"></div>
+           <Actualites />
+           </div>
+          
+           <div className="resume"></div>
+               <div className="page-container-2">
+               <Profile />
+              <Maps/>
+              <FormReact />
+               </div>
+
+          </div>
         );
       }
     }

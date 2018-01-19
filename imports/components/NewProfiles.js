@@ -6,7 +6,8 @@ export default class NewProfiles extends Component {
   constructor(){
     super();
     this.state= {
-      type:""
+      type:"",
+      image:'/image/' + ""
     };
   }
 
@@ -81,6 +82,12 @@ console.log(options.value)
           label='Description'
           placeholder='Contenu de votre article...'/>
           <Form.Group>
+          <Form.Input
+            name="image"
+            onChange={this.handleChange.bind(this)}
+            value={this.state.image}
+            label='Image'
+            placeholder='/image/persona.jpg'/>
             <Form.Select label='Gender' options={options} placeholder='Gender' onChange={this.test.bind(this)} />
           <Form.Button onClick={this.handleSave.bind(this)} content="Enregistrer" positive />
           <Form.Button onClick={this.handleCancel.bind(this)} content="Annuler" negative />

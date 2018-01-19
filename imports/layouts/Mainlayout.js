@@ -1,7 +1,7 @@
 import React from 'react';
-import { Menu, Segment } from 'semantic-ui-react'
 
 
+import Menu from '../components/Menu.js';
 
 
 
@@ -10,7 +10,7 @@ import { Menu, Segment } from 'semantic-ui-react'
  const Mainlayout = ({ content }) => (
 
      <div className="main-layout">
-
+      <Menu />
 
       {content}
 

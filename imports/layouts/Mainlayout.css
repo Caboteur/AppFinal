@@ -1,4 +1,6 @@
-.Mainlayout{
+.main-layout{
 width:100%;
 height:auto;
+background: url('/image/beach.svg');
+background-size: cover;
 }

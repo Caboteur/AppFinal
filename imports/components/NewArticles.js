@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
 import {Form, Segment} from 'semantic-ui-react';
 import {markdown} from 'markdown';
-
+import moment from 'moment';
 
 
 export default class NewArticles extends Component {
   constructor(){
     super();
     this.state= {
-     filename:''
+     filename:'',
+     image:'/image/' + "",
+     date:moment().format("D MMM YY")
     };
   }
 
@@ -25,6 +27,7 @@ export default class NewArticles extends Component {
     if(e.target.name=='description'){
       this.setState({html: markdown.toHTML(e.target.value)})
     }
+    console.log(this.state)
   }
 
   handleCancel(e){
@@ -54,23 +57,8 @@ export default class NewArticles extends Component {
 
 
 
-  uploadFile(e){
-      e.preventDefault();
-      Meteor.subscribe("images");
-      var that = this;
-      FS.Utility.eachFile(e, function(file) {
-          Images.insert(file, function (err, fileObj) {
-              that.setState({filename:fileObj.data.blob.name,imageurl:'/cfs/files/images/' + fileObj._id + '/' + fileObj.data.blob.name});
-          });
-      });
-  console.log(this.sate);
-    console.log(this.sate.filename);
-  }
-
-
-
   render(){
-    console.log(this.state.html)
+
     return(
       <div>
       <Form>
@@ -86,7 +74,14 @@ export default class NewArticles extends Component {
           value={this.state.description}
           label='Description'
           placeholder='Contenu de votre article...'/>
+          <Form.Input
+            name="image"
+            onChange={this.handleChange.bind(this)}
+            value={this.state.image}
+            label='Image'
+            placeholder='/image/persona.jpg'/>
         <Form.Group>
+
           <Form.Button onClick={this.handleSave.bind(this)} content="Enregistrer" positive />
           <Form.Button onClick={this.handleCancel.bind(this)} content="Annuler" negative />
           <li><input onChange={this.uploadFile} ref="file" className='filepicker' id="file" type="file"/></li>

@@ -1,0 +1,89 @@
+﻿{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Aéropport de Perpignan"
+      },
+      "geometry": {
+        "coordinates": [
+          2.868806,
+          42.741308
+        ],
+        "type": "Point"
+      },
+      "id": "5cbb32ad57dfc239d58c45db21855db1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lac des Bouillouses"
+      },
+      "geometry": {
+        "coordinates": [
+          1.997878,
+          42.569909
+        ],
+        "type": "Point"
+      },
+      "id": "8400e89c0dc2c37aee8c4b20084b81f5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Centre Hélio Marin, Banyuls-sur-Mer, Pyrénées-Orientales 66650, France"
+      },
+      "geometry": {
+        "coordinates": [
+          3.126371,
+          42.48897
+        ],
+        "type": "Point"
+      },
+      "id": "address.13322977488799280"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Palais des rois de Majorque"
+      },
+      "geometry": {
+        "coordinates": [
+          2.896054,
+          42.693871
+        ],
+        "type": "Point"
+      },
+      "id": "e13e53ec8405e6dfb85fd7696f79f6f0"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Castelnou"
+      },
+      "geometry": {
+        "coordinates": [
+          2.70278,
+          42.61972
+        ],
+        "type": "Point"
+      },
+      "id": "place.11138824915892740"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Collioure"
+      },
+      "geometry": {
+        "coordinates": [
+          3.08083,
+          42.52556
+        ],
+        "type": "Point"
+      },
+      "id": "place.15032719243498020"
+    }
+  ],
+  "type": "FeatureCollection"
+}

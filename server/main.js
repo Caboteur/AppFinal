@@ -1,5 +1,6 @@
 const Articles = new Mongo.Collection("articles");
 const Profiles = new Mongo.Collection("profiles");
+const Pics = new Mongo.Collection("pictures");
 
 Meteor.methods({
   listeArticles: ()=>{
@@ -34,7 +35,6 @@ Meteor.methods({
 
 
   listeProfile: ()=>{
-    // throw new Meteor.Error(500, "Désolé nous n'avons pas réussi à récupérer les articles");
     return Profiles.find().fetch();
   },
   saveProfile: (obj)=> {
@@ -61,6 +61,29 @@ Meteor.methods({
     // waiting for the email sending to complete.
     this.unblock();
     Email.send({ to, from, subject, text });
+  },
+
+  listePics: ()=>{
+    console.log(Pics.find().fetch())
+    return Pics.find().fetch();
+
+  },
+  savePics: (obj)=> {
+
+      if(obj.length <=1){
+        throw new Meteor.Error("Mettez une photo");
+      } else {
+
+        Pics.insert(obj);
+        console.log(obj);
+      }
+
+
+
+  },
+  removePics:(id) => {
+    Pics.remove(id);
+    console.log("supprimé")
   },
 
 

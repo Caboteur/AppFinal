@@ -13,8 +13,9 @@ return (
 
   <div className="Welcome">
 
-  <a href='/Slide'><div className="entry-title">BACKPACKER.<br/><div className="entry-subtitle">commencez la visite</div></div></a>
 
+
+  <video autoPlay height="100%" width="100%" src="/video/Teaser.mp4" className="fullscreen"></video>
 
 
   </div>

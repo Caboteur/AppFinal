@@ -56,6 +56,7 @@ export default class Profile extends Component {
         } else {
            this.setState({articles: res.reverse()})
           this.getCard();
+          this.ReturnArticle();
         }
       });
     }
@@ -66,28 +67,29 @@ export default class Profile extends Component {
       const i = this.state.num;
 
 
-
        this.state.articles[i];
 
        this.setState({objet:this.state.articles[i]});
 
 
 
-       if(i === this.state.articles.length - 1){
-         const count = this.state.articles.length  ;
-          this.setState({num:count});
-          console.log(count)
-       }
 
-       else {
+
+       if (i < this.state.articles.length-1) {
          const count = i + 1 ;
-         this.setState({num:count});
-         console.log(count)
-         console.log(this.state.articles.length)
-        console.log(i);
+         console.log(count);
 
-       }
-       }
+         this.setState({num:count});
+
+      }else {
+        const count = 0 ;
+        console.log(count);
+
+        this.setState({num:count});
+
+      }
+    }
+
 
 
     getlessCard (){
@@ -102,14 +104,16 @@ export default class Profile extends Component {
 
 
 
-             if(i == 1 ){
-               const count = 0 ;
-                this.setState({num:count});
-                console.log(count)
-             }else {
+             if(i > 0 ){
                const count = i - 1 ;
+               console.log(count);
+
                this.setState({num:count});
-               console.log(count)
+             }else {
+               const count = this.state.articles.length-1 ;
+               console.log(count);
+
+               this.setState({num:count});
 
 
              }
@@ -117,9 +121,11 @@ export default class Profile extends Component {
     }
 
     ReturnArticle () {
-      const StopCard = this.state.articles.slice(0, 2);
+      const StopCard = this.state.articles.slice(0, 4);
+      console.log(StopCard)
       this.setState({stopcard: StopCard});
       console.log(this.state.stopcard);
+      console.log(this.state.articles);
     }
 
     render(){
@@ -168,7 +174,7 @@ export default class Profile extends Component {
         return (
 
 
-          <Media query="(max-width: 599px)">
+          <Media query="(max-width: 1250px)">
                    {matches => matches ? (
                      <div className="Card-container">
 
@@ -184,7 +190,7 @@ export default class Profile extends Component {
               <h3 className="card-h3">acteur</h3>
 
              <div className='trait'></div>
-             <p className="paraph">{label(this.state.objet.description)}</p>
+
 
 
              </div>
@@ -207,7 +213,7 @@ export default class Profile extends Component {
                               <div className="card" key={article._id}>
 
                       <div className="card-circle">
-                            <img className="card-img" src="/image/persona.jpg" />
+                            <img className="card-img" src={article.image} />
                       </div>
                         <div className="">
                           <h1 className="card-h1">{article.title}</h1>
@@ -216,7 +222,7 @@ export default class Profile extends Component {
                        <h3 className="card-h3">acteur</h3>
 
                       <div className='trait'></div>
-                      <p className="paraph">{label(article.description)}</p>
+
 
 
                       </div>
